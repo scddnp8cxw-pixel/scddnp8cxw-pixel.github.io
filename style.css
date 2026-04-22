@@ -608,11 +608,11 @@ footer {
 .tooltip-content {
         width: 85vw !important;
         left: auto !important; 
-        right: -10px !important; /* Anchors it safely to the right edge of the word */
-        transform: translateY(-10px) !important; /* Strips out the horizontal centering */
+        right: -20px !important; 
+        transform: translateY(-10px) !important; 
     }
 
-    /* This forces the animation to drop straight down without snapping right */
+    
     .trigger-word:hover .tooltip-content,
     .trigger-word.active .tooltip-content {
         transform: translateY(0) !important; 
