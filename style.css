@@ -608,7 +608,7 @@ footer {
 .tooltip-content {
         width: 85vw !important;
         left: auto !important; 
-        right: 0 !important; /* Anchors it safely to the right edge of the word */
+        right: -10px !important; /* Anchors it safely to the right edge of the word */
         transform: translateY(-10px) !important; /* Strips out the horizontal centering */
     }
 
