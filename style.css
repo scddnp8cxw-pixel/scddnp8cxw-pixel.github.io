@@ -11,6 +11,10 @@
     --radius-lg: 0px;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Inter', -apple-system, sans-serif;
     background-color: var(--bg-color);
@@ -601,13 +605,14 @@ footer {
         transform: translate(-4px, -4px);
         box-shadow: 4px 4px 0px var(--accent-color);
    .tooltip-content {
-        width: 85vw;
-        left: auto;
-        right: 0;
-        transform: translateY(-10px);
+        width: 85vw !important;
+        left: auto !important; 
+        right: 0 !important;
+        transform: translateY(-10px) !important;
     }
+
     .trigger-word:hover .tooltip-content,
     .trigger-word.active .tooltip-content {
-        transform: translateY(0); 
+        transform: translateY(0) !important; 
     }
 }
