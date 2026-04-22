@@ -606,17 +606,9 @@ footer {
         box-shadow: 4px 4px 0px var(--accent-color);
     }
 .tooltip-content {
-        position: fixed !important;
-        top: 50% !important;
-        left: 50% !important;
-        width: 90vw !important;
-        transform: translate(-50%, -50%) !important;
-        z-index: 999 !important;
+        width: 85vw; /* Sets the width to 85% of the viewport width */
+        max-width: 320px; /* Prevents it from getting too wide on landscape phones */
+        padding: 1.2rem; /* Slightly reduces padding for a better mobile fit */
     }
-
-  
-    .trigger-word:hover .tooltip-content,
-    .trigger-word.active .tooltip-content {
-        transform: translate(-50%, -50%) !important; 
-    }
+}
 }
