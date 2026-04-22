@@ -608,7 +608,7 @@ footer {
 .tooltip-content {
         width: 85vw !important;
         left: auto !important; 
-        right: -30px !important; 
+        right: -21px !important; 
         transform: translateY(-10px) !important; 
     }
 
