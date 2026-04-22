@@ -601,4 +601,8 @@ footer {
         transform: translate(-4px, -4px);
         box-shadow: 4px 4px 0px var(--accent-color);
     }
+    .tooltip-content {
+        width: 85vw;
+        max-width: 320px;
+        padding: 1.2rem;
 }
