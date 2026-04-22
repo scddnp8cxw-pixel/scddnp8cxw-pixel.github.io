@@ -85,6 +85,7 @@ nav {
     border-radius: var(--radius-md); 
     border: 1px solid var(--text-main);
     transition: all 0.2s ease;
+    white-space: nowrap;
 }
 
 .nav-links a.btn:hover {
