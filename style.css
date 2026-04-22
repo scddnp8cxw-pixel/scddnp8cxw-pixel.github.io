@@ -604,15 +604,18 @@ footer {
     .card:hover {
         transform: translate(-4px, -4px);
         box-shadow: 4px 4px 0px var(--accent-color);
-   .tooltip-content {
-        width: 85vw !important;
-        left: auto !important; 
-        right: 0 !important;
-        transform: translateY(-10px) !important;
+.tooltip-content {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        width: 90vw !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: 999 !important;
     }
 
+  
     .trigger-word:hover .tooltip-content,
     .trigger-word.active .tooltip-content {
-        transform: translateY(0) !important; 
+        transform: translate(-50%, -50%) !important; 
     }
 }
