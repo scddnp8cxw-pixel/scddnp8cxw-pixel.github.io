@@ -606,9 +606,15 @@ footer {
         box-shadow: 4px 4px 0px var(--accent-color);
     }
 .tooltip-content {
-        width: 85vw; /* Sets the width to 85% of the viewport width */
-        max-width: 320px; /* Prevents it from getting too wide on landscape phones */
-        padding: 1.2rem; /* Slightly reduces padding for a better mobile fit */
+        width: 85vw;
+        left: auto; /* Removes the 50% left centering */
+        right: 0; /* Anchors the box to the right edge of the word */
+        transform: translateY(-10px); /* Removes the horizontal shift */
     }
-}
+
+    /* Keep the smooth drop-down animation working on mobile */
+    .trigger-word:hover .tooltip-content,
+    .trigger-word.active .tooltip-content {
+        transform: translateY(0); 
+    }
 }
