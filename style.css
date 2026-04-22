@@ -600,9 +600,14 @@ footer {
     .card:hover {
         transform: translate(-4px, -4px);
         box-shadow: 4px 4px 0px var(--accent-color);
-    }
-    .tooltip-content {
+   .tooltip-content {
         width: 85vw;
-        max-width: 320px;
-        padding: 1.2rem;
+        left: auto;
+        right: 0;
+        transform: translateY(-10px);
+    }
+    .trigger-word:hover .tooltip-content,
+    .trigger-word.active .tooltip-content {
+        transform: translateY(0); 
+    }
 }
