@@ -604,6 +604,7 @@ footer {
     .card:hover {
         transform: translate(-4px, -4px);
         box-shadow: 4px 4px 0px var(--accent-color);
+    }
 .tooltip-content {
         position: fixed !important;
         top: 50% !important;
