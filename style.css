@@ -1,0 +1,603 @@
+/* --- Global Styles --- */
+:root {
+    --bg-color: #f4f3ee; /* Warm, sophisticated paper tone */
+    --surface-color: #ffffff;
+    --text-main: #1c1b1a; /* Deep rich ink black */
+    --text-muted: #6b6a65;
+    --accent-color: #7c1f44; /* Vibrant Aubergine */
+    --accent-hover: #591430;
+    --border-color: #d6d4ce;
+    --radius-md: 0px; /* Sharp corners for a print feel */
+    --radius-lg: 0px;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.75;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: var(--text-main);
+}
+
+/* --- Typography Overrides for Print Feel --- */
+h1, h2, h3, .logo {
+    font-family: 'Merriweather', serif;
+    color: var(--text-main);
+}
+
+/* --- Navigation --- */
+header {
+    background-color: transparent; 
+    padding: 2.5rem 5%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.nav-links a.btn {
+    background-color: transparent;
+    color: var(--text-main);
+    padding: 0.6rem 1.4rem;
+    border-radius: var(--radius-md); 
+    border: 1px solid var(--text-main);
+    transition: all 0.2s ease;
+}
+
+.nav-links a.btn:hover {
+    background-color: var(--text-main);
+    color: var(--bg-color);
+}
+
+/* --- HERO SECTION: INTERACTIVE CENTERED LAYOUT --- */
+.hero {
+    max-width: 800px;
+    margin: 7rem auto 6rem auto;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.hero-heading h1 {
+    font-size: 4rem;
+    margin: 0 0 2rem 0;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+/* The Interactive Trigger Word */
+.trigger-word {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+/* Editorial highlight block */
+.trigger-word::before {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: -4px;
+    right: -4px;
+    height: 0;
+    background-color: var(--accent-color);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.trigger-word:hover::before, 
+.trigger-word.active::before {
+    height: 100%;
+    bottom: 0;
+    opacity: 0.1;
+}
+
+.trigger-word:hover,
+.trigger-word.active {
+    color: var(--accent-color);
+}
+
+.trigger-word::after {
+    content: '*';
+    font-size: 0.5em;
+    vertical-align: super;
+    color: var(--accent-color);
+    margin-left: 2px;
+}
+
+.hero-copy {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.hero-copy p.lead {
+    font-size: 1.25rem;
+    color: var(--text-main);
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* THE EDITORIAL TOOLTIP */
+.tooltip-content {
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    width: 400px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--text-main);
+    padding: 1.5rem;
+    font-size: 1rem;
+    color: var(--text-main);
+    font-weight: 400;
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    text-align: left;
+    line-height: 1.8;
+    letter-spacing: normal;
+    white-space: normal;
+    box-shadow: 4px 4px 0px var(--accent-color);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+}
+
+.trigger-word:hover .tooltip-content,
+.trigger-word.active .tooltip-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* --- Portfolio Grid (Index Page) --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto 6rem auto;
+    padding: 0 1.5rem;
+    align-items: start;
+}
+
+.card {
+    background-color: var(--surface-color);
+    padding: 2.5rem;
+    border: 1px solid var(--text-main); 
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translate(-8px, -8px);
+    box-shadow: 8px 8px 0px var(--accent-color);
+}
+
+.card-image-container {
+    width: 100%;
+    margin: 1.5rem 0 1rem 0;
+    max-height: 120px; 
+    overflow: hidden;
+    background-color: transparent;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+}
+
+.card:hover .card-image-container {
+    max-height: 400px;
+    transition: max-height 0.7s; 
+}
+
+.card-image-container img {
+    display: block;
+    width: 100%; /* Stretches exactly to the text margins */
+    height: auto%;
+    object-fit: cover; /* Ensures the image fills the landscape container uniformly */
+    object-position: center;
+    transition: transform 0.7s ease;
+}
+
+.card:hover .card-image-container img {
+    transform: scale(1.00);
+}
+/* Hover Reveal Logic */
+.card p, .card .read-more {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+    overflow: hidden;
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card p {
+    font-size: 0.95rem; 
+    color: var(--text-muted);
+}
+
+.card:hover p {
+    max-height: 500px; 
+    opacity: 1;
+    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+}
+
+.card:hover .read-more {
+    max-height: 50px;
+    opacity: 1;
+}
+
+.tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 0.35rem 0.8rem;
+    align-self: flex-start;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.card h3 {
+    margin: 1rem 0 0 0;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.card .read-more::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+/* --- Project Detail Page --- */
+.project-container {
+    max-width: 720px;
+    margin: 5rem auto;
+    padding: 0 1.5rem;
+}
+
+.project-header {
+    margin-bottom: 4rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 3rem;
+}
+
+.project-header h1 {
+    font-size: 3.5rem;
+    margin: 1.5rem 0 1rem 0;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+}
+
+.project-meta {
+    color: var(--accent-color);
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.project-content {
+    font-family: 'Merriweather', serif; 
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: var(--text-main);
+}
+
+.project-content p {
+    margin-bottom: 1.75rem;
+}
+
+.project-content h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+}
+
+.project-actions {
+    margin-top: 4rem;
+    text-align: center;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.project-actions .btn {
+    background-color: transparent;
+    color: var(--text-main);
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--text-main);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.project-actions .btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+    transform: translate(-4px, -4px);
+    box-shadow: 4px 4px 0px var(--text-main);
+}
+
+.project-content p a,
+.about-content p a,
+.project-content li a,
+.about-content li a {
+    text-decoration: underline;
+    text-decoration-color: var(--accent-color);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px; 
+}
+
+.project-content p a:hover,
+.about-content p a:hover,
+.project-content li a:hover,
+.about-content li a:hover {
+    text-decoration-color: var(--text-main);
+    color: var(--text-main);
+}
+
+.project-hero {
+    width: 100%; /* Tells it to perfectly fill the 720px parent container */
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+}
+
+.project-hero img {
+    width: 100%;
+    height: auto;
+    max-height: 500px; /* Adjusted down to match the narrower width */
+    object-fit: cover; 
+    display: block;
+    border: 1px solid var(--border-color); 
+}
+
+/* --- About Container --- */
+.about-container {
+    max-width: 720px; 
+    margin: 5rem auto;
+    padding: 0 1.5rem;
+}
+
+.about-header {
+    margin-bottom: 3.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 3rem;
+}
+
+.about-header h1 {
+    font-size: 4rem;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+}
+
+.about-meta {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-content {
+    font-family: 'Merriweather', serif;
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: var(--text-main);
+}
+
+.about-content p {
+    margin-bottom: 1.75rem;
+}
+
+.about-content h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+/* Resume Item */
+.resume-item {
+    margin-bottom: 3rem;
+    font-family: 'Inter', sans-serif;
+    border-left: 2px solid var(--border-color);
+    padding-left: 1.5rem;
+}
+
+.resume-role {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.25rem;
+}
+
+.resume-role h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    color: var(--text-main);
+    font-family: 'Merriweather', serif;
+}
+
+.resume-date {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.resume-company {
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.resume-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--text-main);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    margin-top: 2rem;
+}
+
+.skill-item {
+    padding: 1.5rem;
+    border: 1px solid var(--text-main);
+    font-size: 0.95rem;
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: all 0.2s ease;
+}
+
+.skill-item:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 4px 4px 0px var(--border-color);
+}
+
+.skill-item strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+    font-size: 1.05rem;
+    font-family: 'Merriweather', serif;
+}
+
+/* --- Action Area / Footer --- */
+.action-area {
+    margin-top: 5rem;
+    text-align: center;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.action-area .btn {
+    background-color: transparent;
+    color: var(--text-main);
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--text-main);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.action-area .btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+    transform: translate(-4px, -4px);
+    box-shadow: 4px 4px 0px var(--text-main);
+}
+
+footer {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+    .resume-role {
+        flex-direction: column;
+    }
+    .resume-date {
+        margin-top: 0.25rem;
+    }
+    .hero h1, .about-header h1 {
+        font-size: 2.75rem;
+    }
+    .project-header h1 {
+        font-size: 2.5rem;
+    }
+    .nav-links {
+        gap: 1.25rem;
+    }
+    .card:hover {
+        transform: translate(-4px, -4px);
+        box-shadow: 4px 4px 0px var(--accent-color);
+    }
+}

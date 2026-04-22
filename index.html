@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girard Dorney | Content Strategist & Writer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Girard Dorney.</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="mailto:girard.dorney@gmail.com" class="btn">Email me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-heading">
+                <h1>You're <span class="trigger-word" id="diff-trigger" tabindex="0" role="button" aria-expanded="false">different.<span class="tooltip-content">* Before the rise of LLMs, the greatest struggle for organisations was to sound different from their competitors. Now the problem is worse. I can help.</span></span><br>Does your audience know?</h1>
+            </div>
+            
+            <div class="hero-copy">
+                <p class="lead">You've reached Girard Dorney's vibe-coded website and portfolio. I'm a content strategist, senior editor, and writer with over 14 years of experience delivering multi-channel communications for leading brands, executives, and publications.</p>
+            </div>
+        </section>
+
+        <section class="portfolio-grid">
+            <div class="card">
+                <span class="tag">Team Management</span>
+                <div class="card-image-container">
+                    <img src="images/hrm-magazine-cover.png" alt="HRM Magazine Cover">
+                </div>
+                <h3>Editorial Leadership</h3>
+                <p>Oversaw a team of writers and designers delivering a monthly magazine, website, and e-newsletter. We drove a huge YoY increase of website traffic and were key to successfully reaching client AHRI's strategic goals.</p>
+                <a href="editorial_leadership.html" class="read-more">Read Breakdown &rarr;</a>
+            </div>
+
+            <div class="card">
+                <span class="tag">Narrative Management</span>
+                <div class="card-image-container">
+                    <img src="images/brandcomms.jpg" alt="Brand Communications">
+                </div>
+                <h3>Brand Communications</h3>
+                <p>Steered messaging for a variety of clients, from regulated financial companies during the Royal Banking Commission to a growing EAP business looking to make its mark.</p>
+                <a href="brand_communications.html" class="read-more">Read Breakdown &rarr;</a>
+            </div>
+
+            <div class="card">
+                <span class="tag">B2B Publishing</span>
+                <div class="card-image-container">
+                    <img src="images/acuity.jpg" alt="Commercial Editor placeholder">
+                </div>
+                <h3>Commercial Editor</h3>
+                <p>Oversaw the commercial content of publications with large membership audiences, including Chartered Accountants’ Acuity and Engineers Australia’s Create, ensuring brand consistency and coordinating freelance teams.</p>
+                <a href="commercial_editor.html" class="read-more">Read Breakdown &rarr;</a>
+            </div>
+
+            <div class="card">
+                <span class="tag">Investigative Reporting</span>
+                <div class="card-image-container">
+                    <img src="images/vice.jpg" alt="Journalism placeholder">
+                </div>
+                <h3>Journalism</h3>
+                <p>Authored over 100 articles, including for Vice Australia, Reveille Magazine, and Country Update on complex topics such as veteran mental health and Indigenous incarceration under tight deadlines.</p>
+                <a href="journalism.html" class="read-more">Read Breakdown &rarr;</a>
+            </div>
+            
+            <div class="card">
+                <span class="tag">C-Suite Strategy</span>
+                <div class="card-image-container">
+                    <img src="images/Exec.jpg" alt="Executive Communications placeholder">
+                </div>
+                <h3>Executive Communications</h3>
+                <p>Worked with CEOs and executive teams to provide narrative advice, draft keynote speeches, and manage external messaging.</p>
+                <a href="executive_communications.html" class="read-more">Read Breakdown &rarr;</a>
+            </div>
+
+            <div class="card">
+                <span class="tag">Video & Audio</span>
+                <div class="card-image-container">
+                    <img src="images/endo.jpg" alt="Multimedia Campaigns placeholder">
+                </div>
+                <h3>Multimedia Campaigns</h3>
+                <p>Designed and delivered communication campaigns across multiple formats, including video editing, scriptwriting, podcasts, live blogs, and eBooks.</p>
+                <a href="multimedia_campaigns.html" class="read-more">Read Breakdown &rarr;</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Girard Dorney. Based in Sydney, NSW.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const trigger = document.getElementById('diff-trigger');
+            
+            function toggleTooltip(e) {
+                // Prevent bubbling so document click listener doesn't immediately close it
+                if(e) e.stopPropagation();
+                
+                const isActive = trigger.classList.contains('active');
+                trigger.classList.toggle('active');
+                trigger.setAttribute('aria-expanded', !isActive);
+            }
+
+            // Click listener
+            trigger.addEventListener('click', toggleTooltip);
+
+            // Keyboard listener (Enter/Space) for accessibility
+            trigger.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleTooltip(e);
+                }
+            });
+
+            // Close tooltip when clicking anywhere else on the page
+            document.addEventListener('click', (e) => {
+                if (trigger.classList.contains('active') && !trigger.contains(e.target)) {
+                    trigger.classList.remove('active');
+                    trigger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
