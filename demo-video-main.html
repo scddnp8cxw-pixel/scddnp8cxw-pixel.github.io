@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication Is Changing | Girard Dorney</title>
+    <meta name="description" content="A 42-second animated pitch on how AI is changing the way people find information, and what communicators should do about it.">
+
+    <!-- Preview card when the link is shared (email, LinkedIn, Slack, etc.) -->
+    <meta property="og:type" content="video.other">
+    <meta property="og:title" content="Communication is changing. | Girard Dorney">
+    <meta property="og:description" content="A 42-second animated pitch on how AI is changing the way people find information, and what communicators should do about it.">
+    <meta property="og:url" content="https://girard-dorney.com/demo-video.html">
+    <meta property="og:image" content="https://girard-dorney.com/demo-video-poster.jpg">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:height" content="1080">
+    <meta property="og:video" content="https://girard-dorney.com/demo-video.mp4">
+    <meta property="og:video:type" content="video/mp4">
+    <meta property="og:video:width" content="1920">
+    <meta property="og:video:height" content="1080">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .project-container.watch { max-width: 960px; }
+        .watch .project-content { max-width: 720px; margin: 0 auto; }
+        .video-frame {
+            margin: 0 0 4rem 0;
+            border: 1px solid var(--text-main);
+            box-shadow: 8px 8px 0 var(--accent-color);
+            background: var(--text-main);
+            line-height: 0;
+        }
+        .video-frame video { width: 100%; height: auto; display: block; aspect-ratio: 16 / 9; }
+        @media (max-width: 600px) { .video-frame { box-shadow: 4px 4px 0 var(--accent-color); } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Girard Dorney.</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Portfolio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="mailto:girard.dorney@gmail.com" class="btn">Email me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="project-container watch">
+        <div class="project-header">
+            <span class="tag">Motion Graphics</span>
+            <h1>Communication is changing.</h1>
+            <p class="project-meta">Concept, Script &amp; AI video-creation | 2026</p>
+        </div>
+
+        <div class="video-frame">
+            <video controls playsinline preload="metadata" poster="demo-video-poster.jpg">
+                <source src="demo-video-main.mp4" type="video/mp4">
+                Your browser can't play this video. <a href="demo-video.mp4">Download it here</a>.
+            </video>
+        </div>
+
+        <article class="project-content">
+            <p>A short animated demo about how AI is changing the way people find information, and what we in comms should do about it. I wrote and directed it; Claude built it, including the animation, illustrations and sound, over an afternoon of back-and-forth. Suno did the music. It’s a bit rough, but not long ago something like this would have taken days and cost more than $500. Now it takes an afternoon and a monthly subscription. It’s time for all of us to become AI-native.</p>
+
+            <div class="project-actions">
+                <a href="index.html" class="btn">See The Full Portfolio</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Girard Dorney. Based in Sydney, NSW.</p>
+    </footer>
+
+</body>
+</html>
